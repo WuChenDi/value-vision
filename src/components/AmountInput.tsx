@@ -19,18 +19,23 @@ export default function AmountInput(props: AmountInputProps) {
     return ''
   }
 
+  const currencySymbol = getCurrencySymbol(currency)
+
   return (
-    <div className="relative">
+    <div className="relative flex-1">
       <Input
         type="text"
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="pr-16"
+        className={`${currencySymbol ? 'pr-12 sm:pr-16' : ''} text-base`}
+        style={{ fontSize: '16px' }}
       />
-      <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground text-sm">
-        {getCurrencySymbol(currency)}
-      </div>
+      {currencySymbol && (
+        <div className="absolute right-2 sm:right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground text-xs sm:text-sm max-w-[3rem] sm:max-w-none truncate">
+          {currencySymbol}
+        </div>
+      )}
     </div>
   )
 }

@@ -33,47 +33,50 @@ export default function CurrencySelector({
 
   return (
     <Select value={value} onValueChange={onChange}>
-      <SelectTrigger className="w-[200px]">
+      <SelectTrigger className="w-[140px]">
         <SelectValue>
           {currentCurrency ? (
-            <span>{currentCurrency.label}</span>
+            <span className="truncate">{currentCurrency.label}</span>
           ) : (
-            <span>选择货币</span>
+            <span>Select Currency</span>
           )}
         </SelectValue>
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent className="w-[var(--radix-select-trigger-width)] min-w-[200px]">
         <SelectGroup>
-          <SelectLabel>🚀 加密货币</SelectLabel>
+          <SelectLabel>🚀 Cryptocurrency</SelectLabel>
           {CURRENCY_CONFIG.crypto.map((currency) => (
             <SelectItem
               key={currency.value}
               value={currency.value}
               disabled={excludeCurrencies.includes(currency.value)}
+              className="text-sm"
             >
               {currency.label}
             </SelectItem>
           ))}
         </SelectGroup>
         <SelectGroup>
-          <SelectLabel>💰 法定货币</SelectLabel>
+          <SelectLabel>💰 Fiat Currency</SelectLabel>
           {CURRENCY_CONFIG.fiat.map((currency) => (
             <SelectItem
               key={currency.value}
               value={currency.value}
               disabled={excludeCurrencies.includes(currency.value)}
+              className="text-sm"
             >
               {currency.label}
             </SelectItem>
           ))}
         </SelectGroup>
         <SelectGroup>
-          <SelectLabel>🛍️ 实物商品</SelectLabel>
+          <SelectLabel>🛍️ Products</SelectLabel>
           {CURRENCY_CONFIG.products.map((product) => (
             <SelectItem
               key={product.value}
               value={product.value}
               disabled={excludeCurrencies.includes(product.value)}
+              className="text-sm"
             >
               {product.label}
             </SelectItem>

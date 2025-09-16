@@ -46,7 +46,7 @@ export default function Header() {
             </nav>
 
             <div className="flex items-center gap-2">
-              <ThemeToggle />
+              {/* <ThemeToggle /> */}
               <Button asChild variant="outline" size="icon" aria-label="GitHub">
                 <Link
                   href="https://github.com/WuChenDi/value-vision"

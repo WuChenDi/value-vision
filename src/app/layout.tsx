@@ -4,11 +4,11 @@ import { Geist, Geist_Mono } from 'next/font/google'
 
 import Footer from '@/components/footer'
 import Header from '@/components/header'
-import Aurora from '@/components/reactbits/Aurora'
 import Particles from '@/components/reactbits/Particles'
 
 import { Providers } from './providers'
 import '@/app/globals.css'
+import Plasma from '@/components/reactbits/Plasma'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -23,11 +23,13 @@ const geistMono = Geist_Mono({
 const BackgroundEffects = () => (
   <>
     <div className="fixed inset-0">
-      <Aurora
-        colorStops={['#4C00FF', '#97FFF4', '#FF3D9A']}
-        blend={3.3}
-        amplitude={0.3}
-        speed={1.3}
+      <Plasma
+        color="#B19EEF"
+        speed={1}
+        direction="forward"
+        scale={1}
+        opacity={1}
+        mouseInteractive={false}
       />
     </div>
     <div className="fixed inset-0">

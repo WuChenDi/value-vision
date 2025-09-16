@@ -1,11 +1,10 @@
 'use client'
 
-import { RefreshCw } from 'lucide-react'
+import { Sparkles, RefreshCw } from 'lucide-react'
 import { useState, useEffect, useCallback } from 'react'
 
 import GradientText from '@/components/reactbits/GradientText'
 import ShinyText from '@/components/reactbits/ShinyText'
-import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 
 import AmountInput from '@/components/AmountInput'
@@ -21,23 +20,24 @@ export const CURRENCY_CONFIG = {
     { value: 'OKB', label: '⚫ OKB', id: 'okb', symbol: 'OKB' },
   ],
   fiat: [
-    { value: 'USD', label: '🇺🇸 美元', symbol: '$' },
-    { value: 'CNY', label: '🇨🇳 人民币', symbol: '¥' },
-    { value: 'JPY', label: '🇯🇵 日元', symbol: '¥' },
-    { value: 'KRW', label: '🇰🇷 韩元', symbol: '₩' },
-    { value: 'SGD', label: '🇸🇬 新币', symbol: 'S$' },
-    { value: 'AED', label: '🇦🇪 迪拉姆', symbol: 'د.إ' },
-    { value: 'HKD', label: '🇭🇰 港币', symbol: 'HK$' },
-    { value: 'MYR', label: '🇲🇾 马币', symbol: 'RM' },
+    { value: 'USD', label: '🇺🇸 US Dollar', symbol: '$' },
+    { value: 'CNY', label: '🇨🇳 Chinese Yuan', symbol: '¥' },
+    { value: 'JPY', label: '🇯🇵 Japanese Yen', symbol: '¥' },
+    { value: 'KRW', label: '🇰🇷 Korean Won', symbol: '₩' },
+    { value: 'SGD', label: '🇸🇬 Singapore Dollar', symbol: 'S$' },
+    { value: 'AED', label: '🇦🇪 UAE Dirham', symbol: 'د.إ' },
+    { value: 'HKD', label: '🇭🇰 Hong Kong Dollar', symbol: 'HK$' },
+    { value: 'MYR', label: '🇲🇾 Malaysian Ringgit', symbol: 'RM' },
   ],
   products: [
-    { value: 'ZHUJIAO', label: '🍚 猪脚饭', price: 20, currency: 'CNY' },
-    { value: 'KFC', label: '🍗 KFC套餐', price: 50, currency: 'CNY' },
-    { value: 'IN11', label: '💃 in11嫩模', price: 3000, currency: 'CNY' },
     { value: 'IPHONE17', label: '📱 iPhone17', price: 799, currency: 'USD' },
-    { value: 'MACBOOK', label: '💻 MacBook Air', price: 999, currency: 'USD' },
-    { value: 'ROLEX', label: '⌚ Rolex手表', price: 56500, currency: 'CNY' },
-    { value: 'XIAOMISU7', label: '🚗 小米SU7', price: 215900, currency: 'CNY' },
+    { value: 'MACBOOK', label: '💻 MacBook Pro', price: 1599, currency: 'USD' },
+    {
+      value: 'XIAOMISU7',
+      label: '🚗 Xiaomi SU7',
+      price: 215900,
+      currency: 'CNY',
+    },
     {
       value: 'PORSCHE',
       label: '🚗 Porsche 718',
@@ -79,7 +79,7 @@ export default function Home() {
   const [lastInputIndex, setLastInputIndex] = useState(0)
   const [loading, setLoading] = useState(true)
 
-  // 获取已使用的货币列表
+  // Get list of used currencies
   const getUsedCurrencies = (excludeIndex?: number) => {
     return fields
       .filter((_, index) => index !== excludeIndex)
@@ -89,13 +89,13 @@ export default function Home() {
   const loadRates = async () => {
     setLoading(true)
     try {
-      // 获取加密货币价格 (USD)
+      // Get cryptocurrency prices (USD)
       const cryptoResponse = await fetch(
         'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana,binancecoin,okb&vs_currencies=usd',
       )
       const cryptoData: any = await cryptoResponse.json()
 
-      // 获取法币汇率 (USD基准)
+      // Get fiat exchange rates (USD base)
       const fiatResponse = await fetch(
         'https://api.exchangerate-api.com/v4/latest/USD',
       )
@@ -110,14 +110,10 @@ export default function Home() {
       const currencies = ['CNY', 'JPY', 'KRW', 'SGD', 'AED', 'HKD', 'MYR']
       const cryptos = ['BTC', 'ETH', 'SOL', 'BNB', 'OKB']
       const products = [
-        'ZHUJIAO',
-        'KFC',
-        'IN11',
         'IPHONE17',
         'FERRARI',
         'PORSCHE',
         'XIAOMISU7',
-        'ROLEX',
         'MACBOOK',
       ]
       const cryptoPrices: any = {
@@ -128,15 +124,11 @@ export default function Home() {
         OKB: okbPrice,
       }
       const productPrices: any = {
-        ZHUJIAO: 20 / fiatData.rates.CNY,
-        KFC: 50 / fiatData.rates.CNY,
-        IN11: 3000 / fiatData.rates.CNY,
         IPHONE17: 799,
         FERRARI: 1750000 / fiatData.rates.CNY,
         PORSCHE: 550000 / fiatData.rates.CNY,
         XIAOMISU7: 215900 / fiatData.rates.CNY,
-        ROLEX: 56500 / fiatData.rates.CNY,
-        MACBOOK: 999,
+        MACBOOK: 1599,
       }
 
       const newRates: Rates = {}
@@ -181,10 +173,10 @@ export default function Home() {
         })
       })
 
-      console.log('汇率加载成功:', newRates)
+      console.log('Exchange rates loaded successfully:', newRates)
       setRates(newRates)
     } catch (error) {
-      console.error('汇率加载失败:', error)
+      console.error('Failed to load exchange rates:', error)
       setRates(defaultRates)
     } finally {
       setLoading(false)
@@ -290,14 +282,14 @@ export default function Home() {
   }
 
   return (
-    <div className="w-full max-w-4xl space-y-12 relative">
+    <div className="w-full max-w-xl space-y-12 relative">
       <div className="text-center mb-8">
         <GradientText className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r">
-          价值观纠正器
+          Value Converter
         </GradientText>
-        <div className="mt-6">
+        <div className="flex items-center justify-center mt-6">
           <ShinyText
-            text="在这个魔幻现实的世界里，让我们重新审视价值的真正含义 ✨"
+            text="✨ Re-examine your purchasing power and wealth perspective through cryptocurrency"
             disabled={false}
             speed={3}
             className="text-base md:text-lg text-gray-600 dark:text-gray-300"
@@ -305,28 +297,22 @@ export default function Home() {
         </div>
       </div>
 
-      <Card className="border-none bg-card/20 backdrop-blur-lg">
-        <CardContent className="p-4 sm:p-6 space-y-4 sm:space-y-6">
-          <div className="flex justify-center items-center mb-8">
-            <Button
-              onClick={refreshRates}
-              disabled={loading}
-              className="flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg px-4 py-2 transition-all duration-300"
-            >
-              <RefreshCw
-                className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`}
-              />
-              {loading ? '更新中...' : '刷新汇率'}
-            </Button>
-          </div>
-
-          <div className="space-y-6">
+      <Card className="relative border-none bg-card/20 backdrop-blur-lg pb-2!">
+        <div
+          className="absolute top-4 right-6 cursor-pointer"
+          title="Refresh the exchange rate"
+          onClick={refreshRates}
+        >
+          <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
+        </div>
+        <CardContent className="p-4 sm:p-6 pb-2! space-y-4 sm:space-y-6">
+          <div className="space-y-4">
             {fields.map((field, index) => (
               <div
                 key={field.id}
-                className="space-y-4 p-4 sm:p-6 rounded-xl bg-card/20 backdrop-blur-lg border border-border/50 shadow-sm transition-all duration-300"
+                className="p-3 sm:p-4 rounded-xl bg-card/20 backdrop-blur-lg border border-border/50 shadow-sm transition-all duration-300"
               >
-                <div className="flex items-center justify-center gap-6 flex-wrap lg:flex-nowrap">
+                <div className="flex items-center gap-3 sm:gap-4">
                   <CurrencySelector
                     value={field.currency}
                     onChange={(currency) =>
@@ -337,7 +323,7 @@ export default function Home() {
                   <AmountInput
                     value={field.amount}
                     onChange={(value) => handleAmountChange(index, value)}
-                    placeholder="输入金额"
+                    placeholder="Enter amount"
                     currency={field.currency}
                   />
                 </div>
