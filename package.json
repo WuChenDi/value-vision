@@ -2,6 +2,18 @@
   "name": "values",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.15.0",
+  "description": "Powerful web-based tools for your image editing needs",
+  "author": "wudi <wuchendi96@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/WuChenDi",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WuChenDi/value-vision.git"
+  },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "next dev --port 3000 --turbopack",
     "build": "next build --turbopack",
