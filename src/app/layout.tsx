@@ -48,7 +48,8 @@ const BackgroundEffects = () => (
 export const metadata: Metadata = {
   title: 'Values',
   icons: 'https://notes-wudi.pages.dev/images/logo.png',
-  description: 'A simple tool to compare the value of cryptocurrencies, fiat currencies, and products.',
+  description:
+    'A simple tool to compare the value of cryptocurrencies, fiat currencies, and products.',
   keywords: [
     'cryptocurrency',
     'fiat currency',
@@ -66,29 +67,33 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   metadataBase: new URL('https://values.pages.dev/'),
   alternates: {
-    canonical: '/'
+    canonical: '/',
   },
   openGraph: {
     title: 'Values',
-    description: 'A simple tool to compare the value of cryptocurrencies, fiat currencies, and products.',
+    description:
+      'A simple tool to compare the value of cryptocurrencies, fiat currencies, and products.',
     url: '/',
     siteName: 'Values',
     images: [
       {
-        url: 'https://cdn.jsdelivr.net/gh/cdLab996/picture-lib/wudi/value-vision/index.png'
-      }
+        url: 'https://cdn.jsdelivr.net/gh/cdLab996/picture-lib/wudi/value-vision/index.png',
+      },
     ],
     locale: 'en_US',
-    type: 'website'
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Values',
-    description: 'A simple tool to compare the value of cryptocurrencies, fiat currencies, and products.',
-    images: ['https://cdn.jsdelivr.net/gh/cdLab996/picture-lib/wudi/value-vision/index.png'],
+    description:
+      'A simple tool to compare the value of cryptocurrencies, fiat currencies, and products.',
+    images: [
+      'https://cdn.jsdelivr.net/gh/cdLab996/picture-lib/wudi/value-vision/index.png',
+    ],
     site: '@wuchendi96',
-    creator: '@wuchendi96'
-  }
+    creator: '@wuchendi96',
+  },
 }
 
 export default function RootLayout({

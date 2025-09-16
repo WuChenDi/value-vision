@@ -83,7 +83,7 @@ export default function Home() {
   const getUsedCurrencies = (excludeIndex?: number) => {
     return fields
       .filter((_, index) => index !== excludeIndex)
-      .map(field => field.currency)
+      .map((field) => field.currency)
   }
 
   const loadRates = async () => {
