@@ -42,7 +42,7 @@ export default function CurrencySelector({
           )}
         </SelectValue>
       </SelectTrigger>
-      <SelectContent className="w-[var(--radix-select-trigger-width)] min-w-[200px]">
+      <SelectContent className="w-[var(--radix-select-trigger-width)] min-w-[210px]">
         <SelectGroup>
           <SelectLabel>🚀 Cryptocurrency</SelectLabel>
           {CURRENCY_CONFIG.crypto.map((currency) => (

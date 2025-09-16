@@ -1,6 +1,6 @@
 'use client'
 
-import { Sparkles, RefreshCw } from 'lucide-react'
+import { RefreshCw } from 'lucide-react'
 import { useState, useEffect, useCallback } from 'react'
 
 import GradientText from '@/components/reactbits/GradientText'
@@ -10,6 +10,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import AmountInput from '@/components/AmountInput'
 import CurrencySelector from '@/components/CurrencySelector'
 import { defaultRates } from '@/lib/rates'
+import SpotlightCard from '@/components/reactbits/SpotlightCard'
 
 export const CURRENCY_CONFIG = {
   crypto: [
@@ -20,14 +21,14 @@ export const CURRENCY_CONFIG = {
     { value: 'OKB', label: '⚫ OKB', id: 'okb', symbol: 'OKB' },
   ],
   fiat: [
-    { value: 'USD', label: '🇺🇸 US Dollar', symbol: '$' },
-    { value: 'CNY', label: '🇨🇳 Chinese Yuan', symbol: '¥' },
-    { value: 'JPY', label: '🇯🇵 Japanese Yen', symbol: '¥' },
-    { value: 'KRW', label: '🇰🇷 Korean Won', symbol: '₩' },
-    { value: 'SGD', label: '🇸🇬 Singapore Dollar', symbol: 'S$' },
-    { value: 'AED', label: '🇦🇪 UAE Dirham', symbol: 'د.إ' },
-    { value: 'HKD', label: '🇭🇰 Hong Kong Dollar', symbol: 'HK$' },
-    { value: 'MYR', label: '🇲🇾 Malaysian Ringgit', symbol: 'RM' },
+    { value: 'USD', label: '🇺🇸 United States', symbol: '$' },
+    { value: 'CNY', label: '🇨🇳 China', symbol: '¥' },
+    { value: 'JPY', label: '🇯🇵 Japan', symbol: '¥' },
+    { value: 'KRW', label: '🇰🇷 South Korea', symbol: '₩' },
+    { value: 'SGD', label: '🇸🇬 Singapore', symbol: 'S$' },
+    { value: 'AED', label: '🇦🇪 United Arab Emirates', symbol: 'د.إ' },
+    { value: 'HKD', label: '🇭🇰 Hong Kong', symbol: 'HK$' },
+    { value: 'MYR', label: '🇲🇾 Malaysia', symbol: 'RM' },
   ],
   products: [
     { value: 'IPHONE17', label: '📱 iPhone17', price: 799, currency: 'USD' },
@@ -308,10 +309,7 @@ export default function Home() {
         <CardContent className="p-4 sm:p-6 pb-2! space-y-4 sm:space-y-6">
           <div className="space-y-4">
             {fields.map((field, index) => (
-              <div
-                key={field.id}
-                className="p-3 sm:p-4 rounded-xl bg-card/20 backdrop-blur-lg border border-border/50 shadow-sm transition-all duration-300"
-              >
+              <SpotlightCard key={field.id}>
                 <div className="flex items-center gap-3 sm:gap-4">
                   <CurrencySelector
                     value={field.currency}
@@ -327,7 +325,7 @@ export default function Home() {
                     currency={field.currency}
                   />
                 </div>
-              </div>
+              </SpotlightCard>
             ))}
           </div>
         </CardContent>
