@@ -4,7 +4,7 @@ A simple tool to compare the value of cryptocurrencies, fiat currencies, and pro
 
 Preview: https://values.pages.dev/
 
-![](https://cdn.jsdelivr.net/gh/cdLab996/picture-lib/wudi/value-vision/index.png)
+![](https://cdn.jsdelivr.net/gh/cdLab996/picture-lib/wudi/value-vision/og-image.png)
 
 ## 📜 License
 
