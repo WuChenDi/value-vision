@@ -1,5 +1,5 @@
-import { CURRENCY_CONFIG } from '@/app/page'
 import { Input } from '@/components/ui/input'
+import { CURRENCY_CONFIG } from '@/lib/currencies'
 
 interface AmountInputProps {
   value: string

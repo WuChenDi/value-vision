@@ -1,4 +1,4 @@
-import { CURRENCY_CONFIG } from '@/app/page'
+import { CURRENCY_CONFIG } from '@/lib/currencies'
 import {
   Select,
   SelectContent,
