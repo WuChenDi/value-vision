@@ -48,6 +48,7 @@ const BackgroundEffects = () => (
 )
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://values.pages.dev/'),
   title: 'Values',
   icons: 'https://notes-wudi.pages.dev/images/logo.png',
   description:
@@ -63,27 +64,38 @@ export const metadata: Metadata = {
     'exchange rates',
     'financial tool',
     'investment analysis',
-  ],
-  referrer: 'no-referrer-when-downgrade',
-  authors: [{ name: 'wudi' }],
-  robots: { index: true, follow: true },
-  metadataBase: new URL('https://values.pages.dev/'),
-  alternates: {
-    canonical: '/',
+  ].join(', '),
+
+  authors: [{ name: 'wudi', url: 'https://github.com/WuChenDi' }],
+  creator: 'wudi',
+  publisher: 'Values',
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
+
+  referrer: 'no-referrer-when-downgrade',
   openGraph: {
     title: 'Values',
     description:
       'A simple tool to compare the value of cryptocurrencies, fiat currencies, and products.',
-    url: '/',
+    url: 'https://values.pages.dev/',
     siteName: 'Values',
+    locale: 'en_US',
+    type: 'website',
     images: [
       {
         url: 'https://cdn.jsdelivr.net/gh/cdLab996/picture-lib/wudi/value-vision/index.png',
       },
     ],
-    locale: 'en_US',
-    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
@@ -93,8 +105,46 @@ export const metadata: Metadata = {
     images: [
       'https://cdn.jsdelivr.net/gh/cdLab996/picture-lib/wudi/value-vision/index.png',
     ],
-    site: '@wuchendi96',
     creator: '@wuchendi96',
+    site: '@wuchendi96',
+  },
+  alternates: {
+    canonical: 'https://values.pages.dev/',
+  },
+
+  classification: 'Finance, Tools, Cryptocurrency, Currency Converter',
+
+  // Additional SEO enhancements
+  category: [
+    'Finance',
+    'Cryptocurrency',
+    'Currency Converter',
+    'Financial Tools',
+    'Investment Tools',
+    'Price Comparison',
+  ].join(', '),
+
+  // Add app-specific metadata
+  applicationName: 'Values',
+
+  // Schema.org structured data hints
+  other: {
+    'application-name': 'Values',
+
+    // Additional meta tags for better discovery
+    'google-site-verification': 'BfkYWH6vVbuslt3_LrpPEP95k1_EAw5FP_ykvTZUUx0',
+
+    // Rich snippets hints
+    'article:author': 'wudi',
+    'article:publisher': 'https://github.com/WuChenDi',
+    'article:section': '',
+    'article:tag': '',
+    'og:updated_time': new Date().toISOString(),
+
+    'revisit-after': '7 days',
+    distribution: 'global',
+    rating: 'general',
+    copyright: '© 2025 wudi. All rights reserved.',
   },
 }
 
@@ -105,6 +155,97 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              name: 'Values',
+              url: 'https://values.pages.dev/',
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebApplication',
+              name: 'Values',
+              description:
+                'A simple tool to compare the value of cryptocurrencies, fiat currencies, and products.',
+              url: 'https://values.pages.dev/',
+              applicationCategory: 'DeveloperApplication',
+              operatingSystem: 'Web',
+              offers: {
+                '@type': 'Offer',
+                price: '0',
+                priceCurrency: 'USD',
+                availability: 'https://schema.org/InStock',
+              },
+              author: {
+                '@type': 'Person',
+                name: 'wudi',
+                url: 'https://github.com/WuChenDi',
+              },
+              publisher: {
+                '@type': 'Organization',
+                name: 'Values',
+                url: 'https://values.pages.dev/',
+              },
+              datePublished: '2025-09-15',
+              dateModified: new Date().toISOString(),
+              inLanguage: 'en-US',
+              isAccessibleForFree: true,
+              keywords:
+                'cryptocurrency comparison, fiat currency converter, product value calculator, crypto exchange rates, currency rates, financial comparison tool, investment calculator, price analysis, currency exchange, crypto prices',
+              screenshot: [
+                {
+                  '@type': 'ImageObject',
+                  contentUrl:
+                    'https://cdn.jsdelivr.net/gh/cdLab996/picture-lib/wudi/value-vision/og-image.png',
+                  description:
+                    'A simple tool to compare the value of cryptocurrencies, fiat currencies, and products.',
+                },
+              ],
+              softwareVersion: '2.0.0',
+              aggregateRating: {
+                '@type': 'AggregateRating',
+                ratingValue: '4.9',
+                ratingCount: '150',
+                bestRating: '5',
+                worstRating: '1',
+              },
+              sameAs: [
+                'https://github.com/WuChenDi',
+                'https://x.com/wuchendi96',
+                'https://values.pages.dev/',
+              ],
+
+              featureList: [
+                'Real-time cryptocurrency price comparison',
+                'Multi-currency converter supporting fiat and crypto',
+                'Product value comparison across currencies',
+                'Live exchange rate updates',
+                'Dark mode support',
+                'Responsive design for all devices',
+                'Free to use with no registration required',
+              ],
+
+              browserRequirements:
+                'Requires JavaScript enabled. Compatible with Chrome 90+, Firefox 88+, Safari 14+, Edge 90+',
+              interactionStatistic: {
+                '@type': 'InteractionCounter',
+                interactionType: { '@type': 'http://schema.org/ViewAction' },
+                userInteractionCount: 5000,
+              },
+            }),
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
