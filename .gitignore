@@ -84,15 +84,21 @@ web_modules/
 .env.production.local
 .env.local
 
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 .parcel-cache
 
 # Next.js build output
-.turbo
 .next
 out
-apps/*/messages/en.d.json.ts
 
 # Nuxt.js build / generate output
 .DS_Store
@@ -100,9 +106,6 @@ apps/*/messages/en.d.json.ts
 .nuxt
 .output
 dist
-
-# cf
-.wrangler
 
 # Gatsby files
 .cache/
@@ -154,6 +157,5 @@ dist
 # End of https://www.toptal.com/developers/gitignore/api/node
 .user.ini
 
-# other
 collect_files.sh
 files_summary.md
