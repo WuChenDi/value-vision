@@ -49,7 +49,7 @@ export function Header() {
             {/* <ThemeToggle /> */}
             <Button asChild variant="outline" size="icon" aria-label="GitHub">
               <Link
-                href="https://github.com/WuChenDi/SecureC"
+                href="https://github.com/WuChenDi/value-vision"
                 target="_blank"
                 rel="noopener noreferrer"
               >
