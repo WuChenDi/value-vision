@@ -1,13 +1,11 @@
+/** biome-ignore-all lint/security/noDangerouslySetInnerHtml: Required for JSON-LD structured data */
+
 import { GoogleAnalytics } from '@next/third-parties/google'
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
-
-import Footer from '@/components/footer'
-import Header from '@/components/header'
-import Particles from '@/components/reactbits/Particles'
-
-import { Providers } from './providers'
 import '@/app/globals.css'
+import { ClientProviders, Footer, Header } from '@/components/layout'
+import Particles from '@/components/reactbits/Particles'
 import Plasma from '@/components/reactbits/Plasma'
 
 const geistSans = Geist({
@@ -247,18 +245,16 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased `}
       >
-        <Providers>
-          <BackgroundEffects />
-          <main className="flex flex-col min-h-screen bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 text-gray-900 dark:text-white">
+        <ClientProviders>
+          <div className="container mx-auto min-h-screen flex flex-col">
+            <BackgroundEffects />
             <Header />
-            <div className="container mx-auto px-4 py-12 flex flex-col items-center flex-1">
-              {children}
-            </div>
+            {children}
             <Footer />
-          </main>
-        </Providers>
+          </div>
+        </ClientProviders>
       </body>
       <GoogleAnalytics gaId="G-FPHG7CDDVQ" />
     </html>
