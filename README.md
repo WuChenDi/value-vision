@@ -1,3 +1,6 @@
+> [!WARNING]
+> This repository has been moved to: [value-vision](https://github.com/WuChenDi/projects/tree/main/apps/value-vision)
+
 # value-vision
 
 A simple tool to compare the value of cryptocurrencies, fiat currencies, and products.
